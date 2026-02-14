@@ -1,0 +1,182 @@
+
+
+/* 1. הגדרות צבעים ומשתנים - קל לשנות כאן הכל */
+:root {
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --text-header: #ffffff;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --line: #e2e8f0;
+  
+  /* צבעי מותג */
+  --accent: #6366f1; /* סגול אינדיגו מודרני */
+  --accent-soft: #eef2ff;
+  --danger: #ef4444;
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --info: #133b7a;
+  
+
+}
+
+/* 2. איתחול בסיסי */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text-main);
+  line-height: 1.5;
+  direction: rtl; /* מותאם לעברית */
+}
+
+/* 3. פריסה מרכזית (Layout) */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #242955;
+  color: var(--text-header);
+  border-bottom: var(--purple-border); /* שימוש במסגרת הסגולה */
+}
+
+
+.header-actions {
+display: flex;
+gap: 1rem;
+align-items: center;
+}
+
+main {
+  display: grid;
+  gap: 1.5rem;
+  padding: 2rem;
+  grid-template-columns: repeat(12, 1fr);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+section {
+  background: var(--card);
+  border: var(--purple-border); /* החלת המסגרת הסגולה על הכרטיסים */
+  border-radius: 4px;
+  padding: 1.5rem;
+  grid-column: span 6;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+section.wide { grid-column: span 12; }
+
+/* 4. רכיבי ממשק (UI Components) */
+button {
+  
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.625rem 1.25rem;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: all 0.2s;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+button:disabled{
+  opacity:.5;
+  cursor:not-allowed;
+}
+
+
+
+
+/* 5. טפסים ושדות קלט */
+input, select, textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: #fff;
+  font-size: 0.95rem;
+  transition: border-color 0.2s;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+/* 6. טבלאות */
+.table-container {
+  overflow-x: auto;
+  border-radius: 12px;
+  border: var(--purple-border);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: right;
+}
+
+th {
+  background: #fcfaff;
+  padding: 1rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  border-bottom: var(--purple-border);
+}
+
+td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+/* 7. תגים (Badges/Pills) */
+.pill {
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.pill-success { background: #dcfce7; color: #166534; }
+.pill-error { background: #fee2e2; color: #991b1b; }
+
+/* 8. התאמה לנייד */
+@media (max-width: 768px) {
+  section { grid-column: span 12; }
+  header { flex-direction: column; gap: 1rem; }
+}
+
+
+
+/* הדגשת הכרטיסים */
+section {
+    border: 1px solid #6366f1; /* פס סגול עליון */
+    transition: transform 0.2s ease-in-out;
+}
+
+
+/* שדרוג שדות הקלט */
+input, select, textarea {
+    border: 1px solid #cbd5e1;
+    background-color: #f8fafc; /* רקע מעט אפרפר */
+}
+
+
+/* כפתור שמירה בולט */
+.save-btn {
+    background: linear-gradient(135deg, #6366f1 );
+    color: white;
+    padding: 12px 24px;
+    border-radius: 5px; /* כפתור "גלולה" מודרני */
+    font-size: 16px;
+    box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
+}
